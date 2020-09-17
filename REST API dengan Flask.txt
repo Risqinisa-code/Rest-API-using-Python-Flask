@@ -1,0 +1,38 @@
+1. bikin folder environment
+	a. masuk ke folder, virtualenv (nama nya)
+	b. aktivasi di folder Script, activate //akan masuk ke virtual env nya
+
+2. install flask
+	a. flask
+	b. flask-restful
+	c. flask-cores (website hanya bisa berbagi resource dg yg di izinkan aja dengan domain yang sama, fungsinya untuk meng allow agar bisa berbagi data)
+3. cek pip list
+4. masuk ke editor (pycharm/vistud)
+5. buka projek / folder tadi
+6. create new file app.py
+7. mulai menulis kode di app.py
+	a. import library (cek apa aja kebutuhan librarinya)
+		from flask import Flask, request
+		from flask_restful import Resource, Api
+		from flask_cors import CORS
+	b. Inisiasi objek flask
+		app = Flask(__name__)
+	c. Inisiasi objek flask_restful
+		api = Api(app)
+	d. Inisiasi objek flask_cors
+		CORS(app)
+	e. membuat class resource
+		class PretestResource(Pretest)
+			#metode get dan post
+			def get(self):
+				response = {"msg":"Mukidi"}
+				return response
+			#setup resourcenya
+			api.add_resource(PretestResource, "/api", methods=["GET"])
+			
+			if __name__=="__main__":
+				app.run(debug=True, port=5005)
+	f. jalankan di command (jangan lupa masuk environment)
+
+
+
